@@ -1,0 +1,10 @@
+HTML Form
+
+input - text, email, tel,date,
+radio, checkbox, select,textarea
+
+webapp- 
+   index.html 
+      form -> name, email, mobile,dateofbirth,country (select), gender(radio), known languages(check)
+      
+      submit -> servlet -> display
