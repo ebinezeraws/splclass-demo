@@ -1,0 +1,55 @@
+1. Servlet (I)
+      init()
+      service()
+      destroy();
+      getServletInfo()
+      getServletConfig()
+
+
+
+2. GenericServlet (AC)
+3. HttpServlet -> HTTP - (AC)
+
+  get, post, put, head, trace
+
+interface Servlet{}
+abstract class GenericServlet implements Servlet{}
+abstract class HttpServlet extends GenericServlet{
+    doGet,doPost,doPut,doHead,doTrace
+}
+
+
+
+
+
+
+
+1 servlet can have multiple urls
+1 url should not share with multiple servlets
+
+
+client - server archi
+
+
+
+
+http://ipaddress:portnumber/appname/resources
+
+
+
+port - 8080 for tomcat
+
+
+request -> Header, body
+
+get request -> to retrive data from server
+
+post request -> to send data to server
+
+data -> request parameters
+
+http://ipaddress:portnumber/appname/resources?fieldname=value&fieldname=value
+
+for input field -> name is mandatory
+
+
