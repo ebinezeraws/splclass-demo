@@ -1,0 +1,73 @@
+<select name="country">
+   <option value="ind"><lable>India</lable></option>
+   <option value="aus"><label>ABCDED</label></option>
+</select>
+
+
+String country = request.getParamater("country");
+
+
+gender -> male, female -radio ->single in a group
+
+languages -> telugu,hindi, engilsh -> multiple -> group
+
+String[] languages = request.getParameterValues("language");
+
+
+int[] nums = {3,5,8,3};
+
+System.out.println(nums); -> hashcode -> [I@78ae4ef
+
+ hascode -> [java.lang.String@877ae23f
+
+
+for(int num: nums){
+   Sop(num);
+}
+
+
+
+from -> tomcat - 8th version -> default welcome page 
+ 
+ index.html, index.jsp, index.htm, home.html, home.jsp, home.html
+
+
+
+ abcd.html
+
+
+ deployment descripter file -> web.xml
+
+    <welcome-file-list>
+           <welcome-file>abcd.html</welcome-file>
+    </welcome-file-list>
+
+
+
+
+Project:
+===============
+
+Ecommerce : 
+   1. Adminstrator
+   2. User (Customer)
+
+
+1. Registration -> customer
+2. Login -> Customer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
