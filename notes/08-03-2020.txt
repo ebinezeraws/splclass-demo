@@ -1,0 +1,94 @@
+1. recommendation
+
+1. package name
+     must 
+     name -> all small letters
+             appname.servlet
+             appname.resource
+
+
+2. Class Name 
+         -> Every word first letter should be capital
+         -> Propername   - CustomerRegistration
+         -> public, encapuslation, Constructors 
+
+
+3. method
+      -> camelCase 
+      -> propername 
+
+
+4. Varaibles  
+        -> camelCase 
+      -> propername
+
+
+
+
+
+
+
+
+
+
+MVC -> Design Pattern 
+
+ Model View Controller 
+
+    -> Seperation of concern
+
+
+    view - UI -> jsp,css, html-> presentation (dispaly) 
+    Controller -> process request and response -> Servlet 
+
+    Model 
+       DAO - Data Access Object - 
+       DTO - Data Transfer Object - Simple POJO (Plain Old Java Object) class
+ 
+  
+
+JSP :-
+
+    directives 
+      a. @page -> for configure jsp page
+      b. @include -> to include one jsp into another jsp
+      c. @tablib -> custome tag libraries
+
+
+
+
+
+
+Collection
+    List
+       ArrayList
+       LinkedList
+       Vector
+    Set
+      HashSet
+         LinkedHashSet
+    Queue
+
+Map (I)
+  HashMap
+    LinkedHashMap
+  
+
+
+EL experssions
+
+${experssion}
+
+
+
+DBConnection
+   -regdriver
+       add .jar file in webapp/WEB-INF/lib folder
+
+       jar file location - > C:/programfiles(x86)/h2/bin/h2-version.jar
+
+  new Driver() -> org.h2.Driver
+
+
+
+ 

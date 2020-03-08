@@ -1,0 +1,68 @@
+@charset "ISO-8859-1";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+header {
+	padding: 2%;
+	background-color: #33C3FF;
+	display: flex;
+}
+
+header>div#logo {
+	flex: 1;
+}
+
+header>div#nav {
+	flex: 4;
+	display: flex;
+	justify-content: flex-end;
+}
+
+header>div#nav>ul#menu {
+	display: flex;
+	flex: 1;
+	justify-content: flex-end;
+	list-style-type: none;
+}
+
+header>div#nav>ul#menu>li {
+	flex-basis: 15%;
+}
+
+header>div#nav>ul#menu>li>a {
+	color: #FFFFFF;
+	font-size: 25px;
+	font-weight: 700;
+}
+
+section#content {
+	width: 98%;
+	padding: 1%;
+}
+
+section#content>div#registration {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+section#content>div#registration>form#regform>table>tr>td {
+	padding-bottom: 20px;
+}
+
+
+.errorMsgs{
+	color:red;
+}
