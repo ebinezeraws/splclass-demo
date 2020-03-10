@@ -2,6 +2,7 @@ package ecommerce.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import ecommerce.dto.User;
@@ -37,4 +38,31 @@ public class UserService {
 		}
 	}
 
+	
+	public User login(String username, String password){
+		try {
+		PreparedStatement ps = con.prepareStatement("select * from user where username=? and password=?");
+		ps.setString(1, username);
+		ps.setString(2,password);
+		
+		ResultSet rs=ps.executeQuery();
+		if(rs.next()) {
+			User user = new User();
+			user.setId(rs.getInt("id"));
+			user.setUsername(rs.getString("username"));
+			user.setEmail(rs.getString("email"));
+			user.setMobile(rs.getString("mobile"));
+			user.setPassword(rs.getString("password"));
+			user.setConfirmPassword(rs.getString("password"));
+			return user;
+		}else {
+			return null;
+		}
+		}catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	
 }
