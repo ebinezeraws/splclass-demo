@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ecommerce.dto.User;
 import ecommerce.service.UserService;
@@ -33,7 +34,11 @@ public class Login extends HttpServlet {
 		User user = userService.login(username, password);
 
 		if (user != null) {
-			response.getWriter().print("successfully logged in");
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
+			response.sendRedirect("homepage.jsp");
+			
 		} else {
 			request.setAttribute("errorMessage", "Invalid Credentails");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
