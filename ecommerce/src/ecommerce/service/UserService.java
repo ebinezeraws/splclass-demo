@@ -38,31 +38,53 @@ public class UserService {
 		}
 	}
 
-	
-	public User login(String username, String password){
+	public User login(String username, String password) {
 		try {
-		PreparedStatement ps = con.prepareStatement("select * from user where username=? and password=?");
-		ps.setString(1, username);
-		ps.setString(2,password);
-		
-		ResultSet rs=ps.executeQuery();
-		if(rs.next()) {
-			User user = new User();
-			user.setId(rs.getInt("id"));
-			user.setUsername(rs.getString("username"));
-			user.setEmail(rs.getString("email"));
-			user.setMobile(rs.getString("mobile"));
-			user.setPassword(rs.getString("password"));
-			user.setConfirmPassword(rs.getString("password"));
-			return user;
-		}else {
-			return null;
-		}
-		}catch(SQLException e) {
+			PreparedStatement ps = con.prepareStatement("select * from user where username=? and password=?");
+			ps.setString(1, username);
+			ps.setString(2, password);
+
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setUsername(rs.getString("username"));
+				user.setEmail(rs.getString("email"));
+				user.setMobile(rs.getString("mobile"));
+				user.setPassword(rs.getString("password"));
+				user.setConfirmPassword(rs.getString("password"));
+				return user;
+			} else {
+				return null;
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
-	
+
+	public boolean update(User user) {
+		try {
+			PreparedStatement ps = con
+					.prepareStatement("update user set id=?,username=?,email=?,mobile=?,password=? where id=?");
+			ps.setInt(1, user.getId());
+			ps.setString(2, user.getUsername());
+			ps.setString(3, user.getEmail());
+			ps.setString(4, user.getMobile());
+			ps.setString(5, user.getPassword());
+			ps.setInt(6, user.getId());
+
+			int count = ps.executeUpdate();
+
+			if (count > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 }
