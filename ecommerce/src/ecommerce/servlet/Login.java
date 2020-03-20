@@ -30,20 +30,20 @@ public class Login extends HttpServlet {
 		String password = request.getParameter("password");
 
 		try {
-		UserService userService = new UserService();
-		User user = userService.login(username, password);
+			UserService userService = new UserService();
+			User user = userService.login(username, password);
 
-		if (user != null) {
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			response.sendRedirect("homepage.jsp");
-			
-		} else {
-			request.setAttribute("errorMessage", "Invalid Credentails");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}
-		}catch(SQLException e) {
+			if (user != null) {
+
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
+				response.sendRedirect("homepage.jsp");
+
+			} else {
+				request.setAttribute("errorMessage", "Invalid Credentails");
+				request.getRequestDispatcher("login.jsp").forward(request, response);
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Some internal error. Try again... Sorry");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
