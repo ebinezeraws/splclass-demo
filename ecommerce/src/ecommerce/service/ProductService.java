@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.org.apache.regexp.internal.recompile;
+
 import ecommerce.dto.Product;
 import ecommerce.utility.DBConnection;
 
@@ -67,4 +69,54 @@ public class ProductService {
 		}
 
 	}
+
+	public Product getProduct(Integer id) {
+		try {
+			PreparedStatement ps = connection.prepareStatement("select * from product where id =?");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				Product product = new Product();
+				product.setId(rs.getInt("id"));
+				product.setName(rs.getString("name"));
+				product.setPrice(rs.getFloat("price"));
+				product.setQuantity(rs.getInt("quantity"));
+				product.setDescription(rs.getString("description"));
+				return product;
+			} else {
+				return null;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public boolean update(Product product) {
+
+		try {
+			PreparedStatement ps = connection
+					.prepareStatement("update product set id=?,name=?,price=?,quantity=?,description=? where id=?");
+			ps.setInt(1, product.getId());
+			ps.setString(2, product.getName());
+			ps.setFloat(3, product.getPrice());
+			ps.setInt(4, product.getQuantity());
+			ps.setString(5, product.getDescription());
+			ps.setInt(6, product.getId());
+
+			int count = ps.executeUpdate();
+			if (count > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
 }

@@ -39,6 +39,9 @@
 					<td><img src="./prodimages/${product.name}.jpg" width="200"
 						height="200"></td>
 				</tr>
+				<tr>
+					<td><a href="editProduct?id=${product.id}"><button>Edit</button></a></td>
+				</tr>
 			</table>
 		</div>
 
